@@ -5,6 +5,7 @@
     <nav class="navbar">
         <div class="navbar__brand">
             <router-link to="/">Vue-Auth</router-link>
+            <i class="fa-solid fa-bars navbar__burger"></i>
         </div>
         <div class="navbar__menu">
             <router-link to="/login" class="navbar__login">Login</router-link>
@@ -30,7 +31,7 @@
     font-size: 25px;
 }
 .navbar__menu {
-    flex: 8;
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: end;
@@ -41,6 +42,12 @@
     font-size: larger;
     padding: 8px 12px;
     transition: .2s all;
+}
+.navbar__burger {
+    display: none;
+    font-weight: 900;
+    font-size: 30px;
+    color: white;
 }
 .navbar__menu .navbar__login:hover {
     text-shadow: 1px 1px 3px gainsboro;
@@ -53,5 +60,22 @@
 }
 .navbar__menu .navbar__sign-up:hover {
     box-shadow: 1px 1px 3px gainsboro;
+}
+@media screen and (max-width:426px) {
+    .navbar {
+        padding: 0px 40px;
+    }
+    .navbar__brand {
+        display: flex;
+        flex: 1;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .navbar__burger {
+        display: block;
+    }
+    .navbar__menu {
+        display: none;
+    }
 }
 </style>
