@@ -9,7 +9,9 @@ const showMenu = ref(false)
             <i class="fa-solid fa-bars navbar__burger" @click="showMenu = !showMenu"></i>
         </div>
         <div class="navbar__menu" :class="showMenu ? 'navbar__menu_open' : ''">
-            <i class="fa-solid fa-x navbar__burger" @click="showMenu = !showMenu"></i>
+            <div class="navbar__menu-header">
+                <i class="fa-solid fa-x navbar__burger" @click="showMenu = !showMenu"></i>
+            </div>
             <router-link to="/login" class="navbar__login">Login</router-link>
             <router-link to="/sign-up" class="navbar__sign-up">Sign-up</router-link>
         </div>
@@ -51,6 +53,9 @@ const showMenu = ref(false)
     font-size: 30px;
     color: white;
 }
+.navbar__menu-header {
+    display: none;
+}
 .navbar__menu .navbar__login:hover {
     text-shadow: 1px 1px 3px gainsboro;
 }
@@ -88,9 +93,9 @@ const showMenu = ref(false)
         justify-content: start;
         background-color: #2a2a2a;
         box-shadow: 0px 0px 3px gainsboro;
-        padding: 20px;
-        transition: .3s all;
+        transition: .4s all;
         transform: translateX(100%);
+        padding: 0px 20px;
     }
     .navbar__sign-up {
         width: 100%;
@@ -101,6 +106,14 @@ const showMenu = ref(false)
     }
     .navbar__menu_open {
         transform: translateX(0%);
+    }
+    .navbar__menu-header {
+        display: block;
+        width: 100%;
+        display: flex;
+        justify-content: right;
+        padding: 15px 0px;
+        border-bottom: 2px solid gainsboro;
     }
 }
 </style>
