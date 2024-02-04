@@ -1,13 +1,15 @@
 <script setup>
-
+import { ref } from 'vue';
+const showMenu = ref(false)
 </script>
 <template>
     <nav class="navbar">
         <div class="navbar__brand">
             <router-link to="/">Vue-Auth</router-link>
-            <i class="fa-solid fa-bars navbar__burger"></i>
+            <i class="fa-solid fa-bars navbar__burger" @click="showMenu = !showMenu"></i>
         </div>
-        <div class="navbar__menu">
+        <div class="navbar__menu" :class="showMenu ? 'navbar__menu_open' : ''">
+            <i class="fa-solid fa-bars navbar__burger" @click="showMenu = !showMenu"></i>
             <router-link to="/login" class="navbar__login">Login</router-link>
             <router-link to="/sign-up" class="navbar__sign-up">Sign-up</router-link>
         </div>
@@ -63,7 +65,8 @@
 }
 @media screen and (max-width:426px) {
     .navbar {
-        padding: 0px 40px;
+        padding: 0px 30px;
+        position: relative;
     }
     .navbar__brand {
         display: flex;
@@ -75,7 +78,29 @@
         display: block;
     }
     .navbar__menu {
-        display: none;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 1;
+        width: 60%;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: start;
+        background-color: #2a2a2a;
+        box-shadow: 0px 0px 3px gainsboro;
+        padding: 20px;
+        transition: .3s all;
+        transform: translateX(100%);
+    }
+    .navbar__sign-up {
+        width: 100%;
+        text-align: center;
+    }
+    .navbar__menu .navbar__burger {
+        align-self: flex-end;
+    }
+    .navbar__menu_open {
+        transform: translateX(0%);
     }
 }
 </style>
