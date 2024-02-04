@@ -9,7 +9,7 @@ const showMenu = ref(false)
             <i class="fa-solid fa-bars navbar__burger" @click="showMenu = !showMenu"></i>
         </div>
         <div class="navbar__menu" :class="showMenu ? 'navbar__menu_open' : ''">
-            <i class="fa-solid fa-bars navbar__burger" @click="showMenu = !showMenu"></i>
+            <i class="fa-solid fa-x navbar__burger" @click="showMenu = !showMenu"></i>
             <router-link to="/login" class="navbar__login">Login</router-link>
             <router-link to="/sign-up" class="navbar__sign-up">Sign-up</router-link>
         </div>
@@ -82,7 +82,7 @@ const showMenu = ref(false)
         right: 0;
         top: 0;
         z-index: 1;
-        width: 60%;
+        width: 70%;
         height: 100vh;
         flex-direction: column;
         justify-content: start;
